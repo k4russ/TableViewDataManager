@@ -25,23 +25,23 @@
 
 import UIKit
 
-public class TableViewDatePickerCell: TableViewFormCell {
+open class TableViewDatePickerCell: TableViewFormCell {
 
     // MARK: Public variables
     //
-    public override var item: TableViewItem! { get { return datePickerItem } set { datePickerItem = newValue as! TableViewDatePickerItem } }
+    open override var item: TableViewItem! { get { return datePickerItem } set { datePickerItem = newValue as! TableViewDatePickerItem } }
     
     // MARK: Private variables
     //
-    private var datePickerItem: TableViewDatePickerItem!
+    fileprivate var datePickerItem: TableViewDatePickerItem!
     
     // MARK: Interface builder outlets
     //
-    @IBOutlet public private(set) var datePicker: UIDatePicker!
+    @IBOutlet open fileprivate(set) var datePicker: UIDatePicker!
     
     // MARK: View Lifecycle
     //
-    public override func cellWillAppear() {
+    open override func cellWillAppear() {
         super.cellWillAppear()
         guard let dateTimeItem = self.datePickerItem.dateTimeItem, let value = dateTimeItem.value else {
             return
@@ -54,19 +54,19 @@ public class TableViewDatePickerCell: TableViewFormCell {
         self.datePicker.timeZone = dateTimeItem.timeZone
         self.datePicker.minimumDate = dateTimeItem.minimumDate
         self.datePicker.maximumDate = dateTimeItem.maximumDate
-        self.datePicker.minuteInterval = dateTimeItem.minuteInterval        
+        self.datePicker.minuteInterval = dateTimeItem.minuteInterval
     }
     
     // MARK: Actions
     
-    @IBAction func datePickerValueChanged(sender: UIDatePicker!) {
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker!) {
         if let dateTimeItem = self.datePickerItem.dateTimeItem {
             dateTimeItem.value = sender.date
         }
         guard let changeHandler = self.datePickerItem.changeHandler, let tableView = self.tableViewDataManager.tableView, let indexPath = self.indexPath else {
             return
         }
-        changeHandler(section: self.section, item: self.datePickerItem, tableView: tableView, indexPath: indexPath)
+        changeHandler(self.section, self.datePickerItem, tableView, indexPath)
     }
     
 }

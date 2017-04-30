@@ -300,7 +300,7 @@
 				TargetAttributes = {
 					30DF5A961C9400AD00951179 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -482,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanefimov.TableViewDataManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -499,7 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanefimov.TableViewDataManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
